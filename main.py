@@ -20,6 +20,7 @@ REACH THE END BEFORE THE MEN GON GETCHU."""
 
 CHOICES = """
     ----
+    C. DRIVE FULL THROTTLE
     D. STOP TO REFUEL (NO FOOD AVAILABLE)
     E. STATUS CHECK
     Q. QUIT
@@ -60,13 +61,35 @@ def main():
 
         user_choice = input("WHAT DO YOU WANT TO DO?\n").lower().strip("!?,.")
 
-        if user_choice == "d":
+        if user_choice == "c":
+            # FAST
+            player_distance_now = random.randrange(10, 16)
+            agents_distance_now = random.randrange(7, 15)
+
+            # Burn fuel
+            fuel -= random.randrange(5, 11)
+
+            # Player distance travelled
+            kms_travelled += player_distance_now
+
+            # Agent distance travelled
+            agents_distance -= player_distance_now - agents_distance_now
+
+            # Feedback to player
+            print()
+            print("ZOOOOOOOOM")
+            print(f"-------- YOU TRAVELED {player_distance_now} KM.")
+            print()
+
+
+        elif user_choice == "d":
             # Refueling
             # Fill up the fuel tank
             fuel = MAX_FUEL_LEVEL
 
             # Consider the agents coming closer
             agents_distance += random.randrange(7, 15)
+
             # Give player feedback
             print()
             print("-------- YOU FILLED THE FUEL TANK")
@@ -74,12 +97,14 @@ def main():
             print()
 
         elif user_choice == "e":
+            # Display status of game
             print(f"\t---STATUS CHECK---")
             print(f"\tKM TRAVELLED: {kms_travelled}")
             print(f"\tFUEL REMAINING: {fuel} L")
             print(f"\tAGENTS ARE {abs(agents_distance)} KM BEHIND")
             print(f"\tYOU HAVE {tofu} TOFU LEFT")
             print(f"\t--------\n")
+
         elif user_choice == "q":
             done = True
 

@@ -192,10 +192,10 @@ def main():
             break
 
         # Display hunger
-        if hunger > 40:
+        if hunger > 33:
             print("******** Your stomach rumbles, you need to eat something soon.")
             time.sleep(1)
-        elif hunger > 25:
+        elif hunger > 20:
             print("******** Your hunger is small, but manageable.")
             time.sleep(1)
 

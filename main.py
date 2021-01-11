@@ -191,15 +191,15 @@ def main():
             type_text_output(LOSE_FUEL)
             break
 
-    # Display hunger
-    if hunger > 40:
-        print("******** Your stomach rumbles, you need to eat something soon.")
-        time.sleep(1)
-    elif hunger > 25:
-        print("******** Your hunger is small, but manageable.")
-        time.sleep(1)
+        # Display hunger
+        if hunger > 40:
+            print("******** Your stomach rumbles, you need to eat something soon.")
+            time.sleep(1)
+        elif hunger > 25:
+            print("******** Your hunger is small, but manageable.")
+            time.sleep(1)
 
-    # Display the user their choices
+        # Display the user their choices
         print(CHOICES)
 
         user_choice = input("WHAT DO YOU WANT TO DO?\n").lower().strip("!?,.")
